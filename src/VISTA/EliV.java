@@ -379,8 +379,8 @@ int xMouse, yMouse;
     private void textbutomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textbutomMouseClicked
 
         Administrador ad = new Administrador();
-        setVisible(true);
-        dispose();
+         ad.setVisible(true);
+         dispose();
     }//GEN-LAST:event_textbutomMouseClicked
 
 
