@@ -3,6 +3,8 @@ package VISTA;
 
 import MODEL.Conexion;
 import MODEL.JsonCarga;
+import MODEL.ProductosDAORelacional;
+import MODEL.productosM;
 import MODEL.SucursalesDAORelacional;
 import MODEL.VendedoresDAORelacional;
 import MODEL.sucursalesM;
@@ -35,12 +37,14 @@ import javax.swing.table.DefaultTableModel;
 public class Administrador extends javax.swing.JFrame {
 DefaultTableModel tabla2;
 DefaultTableModel tablaS3;
+DefaultTableModel tablaP4;
      int xMouse, yMouse;
      
     public Administrador() {
         initComponents();
         datos();
         datosS();
+        datosP();
     }
 
     @SuppressWarnings("unchecked")
@@ -79,6 +83,21 @@ DefaultTableModel tablaS3;
         pdf1 = new javax.swing.JLabel();
         cerrar1 = new javax.swing.JPanel();
         sesion1 = new javax.swing.JLabel();
+        panelP = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tablaP = new javax.swing.JTable();
+        crearS1 = new javax.swing.JPanel();
+        textbutom2 = new javax.swing.JLabel();
+        Update2 = new javax.swing.JPanel();
+        Modi2 = new javax.swing.JLabel();
+        elimi2 = new javax.swing.JPanel();
+        ELI2 = new javax.swing.JLabel();
+        carga2 = new javax.swing.JPanel();
+        masi2 = new javax.swing.JLabel();
+        expo2 = new javax.swing.JPanel();
+        pdf2 = new javax.swing.JLabel();
+        cerrar2 = new javax.swing.JPanel();
+        sesion2 = new javax.swing.JLabel();
         head = new javax.swing.JPanel();
         exit = new javax.swing.JPanel();
         x = new javax.swing.JLabel();
@@ -646,6 +665,282 @@ DefaultTableModel tablaS3;
 
         jTabbedPane1.addTab("Sucursales", panelS);
 
+        panelP.setBackground(new java.awt.Color(139, 195, 74));
+
+        tablaP.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane3.setViewportView(tablaP);
+
+        crearS1.setBackground(new java.awt.Color(102, 102, 102));
+        crearS1.setPreferredSize(new java.awt.Dimension(150, 55));
+        crearS1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                crearS1MouseClicked(evt);
+            }
+        });
+
+        textbutom2.setFont(new java.awt.Font("Russo One", 0, 12)); // NOI18N
+        textbutom2.setForeground(new java.awt.Color(139, 195, 74));
+        textbutom2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        textbutom2.setText("CREAR PRODUCTO");
+        textbutom2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        textbutom2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                textbutom2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                textbutom2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                textbutom2MouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout crearS1Layout = new javax.swing.GroupLayout(crearS1);
+        crearS1.setLayout(crearS1Layout);
+        crearS1Layout.setHorizontalGroup(
+            crearS1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(textbutom2, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+        );
+        crearS1Layout.setVerticalGroup(
+            crearS1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(textbutom2, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+        );
+
+        Update2.setBackground(new java.awt.Color(102, 102, 102));
+        Update2.setPreferredSize(new java.awt.Dimension(150, 55));
+        Update2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Update2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Update2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Update2MouseExited(evt);
+            }
+        });
+
+        Modi2.setFont(new java.awt.Font("Russo One", 0, 12)); // NOI18N
+        Modi2.setForeground(new java.awt.Color(139, 195, 74));
+        Modi2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Modi2.setText("MODIFICAR PRODUCTO");
+        Modi2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Modi2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Modi2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Modi2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Modi2MouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Update2Layout = new javax.swing.GroupLayout(Update2);
+        Update2.setLayout(Update2Layout);
+        Update2Layout.setHorizontalGroup(
+            Update2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Modi2, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+        );
+        Update2Layout.setVerticalGroup(
+            Update2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Modi2, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+        );
+
+        elimi2.setBackground(new java.awt.Color(102, 102, 102));
+        elimi2.setPreferredSize(new java.awt.Dimension(150, 55));
+        elimi2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                elimi2MouseClicked(evt);
+            }
+        });
+
+        ELI2.setFont(new java.awt.Font("Russo One", 0, 12)); // NOI18N
+        ELI2.setForeground(new java.awt.Color(139, 195, 74));
+        ELI2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ELI2.setText("ELIMINAR PRODUCTO");
+        ELI2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ELI2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ELI2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ELI2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ELI2MouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout elimi2Layout = new javax.swing.GroupLayout(elimi2);
+        elimi2.setLayout(elimi2Layout);
+        elimi2Layout.setHorizontalGroup(
+            elimi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ELI2, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+        );
+        elimi2Layout.setVerticalGroup(
+            elimi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ELI2, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+        );
+
+        carga2.setBackground(new java.awt.Color(102, 102, 102));
+        carga2.setPreferredSize(new java.awt.Dimension(150, 55));
+        carga2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carga2MouseClicked(evt);
+            }
+        });
+
+        masi2.setFont(new java.awt.Font("Russo One", 0, 12)); // NOI18N
+        masi2.setForeground(new java.awt.Color(139, 195, 74));
+        masi2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        masi2.setText("CARGA MASIVA");
+        masi2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        masi2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                masi2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                masi2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                masi2MouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout carga2Layout = new javax.swing.GroupLayout(carga2);
+        carga2.setLayout(carga2Layout);
+        carga2Layout.setHorizontalGroup(
+            carga2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(masi2, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+        );
+        carga2Layout.setVerticalGroup(
+            carga2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(masi2, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+        );
+
+        expo2.setBackground(new java.awt.Color(102, 102, 102));
+        expo2.setPreferredSize(new java.awt.Dimension(150, 55));
+        expo2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                expo2MouseClicked(evt);
+            }
+        });
+
+        pdf2.setFont(new java.awt.Font("Russo One", 0, 12)); // NOI18N
+        pdf2.setForeground(new java.awt.Color(139, 195, 74));
+        pdf2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pdf2.setText("EXPORTAR LISTADO A PDF");
+        pdf2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pdf2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pdf2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pdf2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pdf2MouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout expo2Layout = new javax.swing.GroupLayout(expo2);
+        expo2.setLayout(expo2Layout);
+        expo2Layout.setHorizontalGroup(
+            expo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pdf2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        expo2Layout.setVerticalGroup(
+            expo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pdf2, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+        );
+
+        cerrar2.setBackground(new java.awt.Color(102, 102, 102));
+
+        sesion2.setBackground(new java.awt.Color(255, 255, 255));
+        sesion2.setFont(new java.awt.Font("Russo One", 0, 14)); // NOI18N
+        sesion2.setForeground(new java.awt.Color(0, 0, 0));
+        sesion2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sesion2.setText("Cerrar Sesión");
+        sesion2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        sesion2.setPreferredSize(new java.awt.Dimension(70, 43));
+        sesion2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sesion2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                sesion2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                sesion2MouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout cerrar2Layout = new javax.swing.GroupLayout(cerrar2);
+        cerrar2.setLayout(cerrar2Layout);
+        cerrar2Layout.setHorizontalGroup(
+            cerrar2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(sesion2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+        );
+        cerrar2Layout.setVerticalGroup(
+            cerrar2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(sesion2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout panelPLayout = new javax.swing.GroupLayout(panelP);
+        panelP.setLayout(panelPLayout);
+        panelPLayout.setHorizontalGroup(
+            panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPLayout.createSequentialGroup()
+                        .addComponent(crearS1, 148, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                        .addComponent(Update2, 147, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelPLayout.createSequentialGroup()
+                        .addComponent(elimi2, 147, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(carga2, 147, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(expo2, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(cerrar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        panelPLayout.setVerticalGroup(
+            panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
+                    .addGroup(panelPLayout.createSequentialGroup()
+                        .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(crearS1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Update2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(elimi2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(carga2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(expo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cerrar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Productos", panelP);
+
         jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 650, 380));
 
         head.setBackground(new java.awt.Color(102, 102, 102));
@@ -1210,6 +1505,239 @@ DefaultTableModel tablaS3;
         cerrar1.setForeground(Color.black);
     }//GEN-LAST:event_sesion1MouseExited
 
+    private void textbutom2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textbutom2MouseClicked
+     
+        AddP ap = new AddP();
+        ap.setVisible(true);
+        dispose();
+        
+    }//GEN-LAST:event_textbutom2MouseClicked
+
+    private void textbutom2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textbutom2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textbutom2MouseEntered
+
+    private void textbutom2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textbutom2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textbutom2MouseExited
+
+    private void crearS1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearS1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_crearS1MouseClicked
+
+    private void Modi2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Modi2MouseClicked
+       
+        enviar_datosP();
+        
+    }//GEN-LAST:event_Modi2MouseClicked
+
+    private void enviar_datosP(){
+    
+    int codigo = (int) tablaP.getValueAt(tablaP.getSelectedRow(), 0);
+        
+         UpP pu = new UpP();
+         pu.MostrarP(codigo);
+         pu.setVisible(true);
+         dispose();
+       
+    }
+    
+    private void Modi2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Modi2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Modi2MouseEntered
+
+    private void Modi2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Modi2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Modi2MouseExited
+
+    private void Update2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Update2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Update2MouseClicked
+
+    private void Update2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Update2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Update2MouseEntered
+
+    private void Update2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Update2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Update2MouseExited
+
+    private void ELI2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ELI2MouseClicked
+      
+     eliminar_datosP();
+    }//GEN-LAST:event_ELI2MouseClicked
+
+    private void eliminar_datosP(){
+    
+    int codigo = (int) tablaP.getValueAt(tablaP.getSelectedRow(), 0);
+
+         EliP eP = new EliP();
+         eP.EliMostrarP(codigo);
+         eP.setVisible(true);
+         dispose();
+         ProductosDAORelacional pd = new ProductosDAORelacional();
+         pd.eliminar_productos(codigo);
+  
+
+
+    }
+    
+    
+    private void ELI2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ELI2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ELI2MouseEntered
+
+    private void ELI2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ELI2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ELI2MouseExited
+
+    private void elimi2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_elimi2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_elimi2MouseClicked
+
+    private void masi2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_masi2MouseClicked
+      
+          JsonCarga archivo = new JsonCarga();
+          String leerarchivo = archivo.leerarchivo();
+          cargaMasivaP(leerarchivo);
+          datosP();
+    }//GEN-LAST:event_masi2MouseClicked
+
+    private void cargaMasivaP(String leerarchivo) {
+        String archivo_retorno = leerarchivo;
+        JsonParser parse = new JsonParser();
+        JsonArray matriz = parse.parse(archivo_retorno).getAsJsonArray();
+
+        for (int i = 0; i < matriz.size(); i++) {
+            JsonObject object = matriz.get(i).getAsJsonObject();
+            String nombre = object.get("nombre").getAsString();
+            String descripcion = object.get("descripcion").getAsString();
+            int cantidad = object.get("cantidad").getAsInt();
+            float telefono = object.get("precio").getAsFloat();
+ 
+            productosM in = new productosM(nombre, descripcion, cantidad, telefono);
+            ProductosDAORelacional insertP = new ProductosDAORelacional();
+            insertP.crear_productos(in);
+
+        }
+    }
+    
+    
+    private void masi2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_masi2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_masi2MouseEntered
+
+    private void masi2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_masi2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_masi2MouseExited
+
+    private void carga2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carga2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carga2MouseClicked
+
+    private void pdf2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pdf2MouseClicked
+       
+        exportarPDFp();
+    }//GEN-LAST:event_pdf2MouseClicked
+
+    
+    public void exportarPDFp() {
+        Document doc = new Document();
+        try {
+
+            FileOutputStream gen = new FileOutputStream("Listado Oficial Productos.pdf");
+            
+
+            PdfWriter.getInstance(doc, gen);
+            doc.open();
+            
+            Paragraph titulo = new Paragraph("Listado Productos");
+            titulo.setAlignment(Element.ALIGN_CENTER);
+            Font fontTitulo = FontFactory.getFont(FontFactory.COURIER, 24, Font.BOLD, new BaseColor(0, 102, 204));
+            titulo.setFont(fontTitulo);
+            doc.add(titulo);
+
+            doc.add(new Paragraph("\n"));
+            PdfPTable tabla = new PdfPTable(4);
+            tabla.setWidthPercentage(100);
+
+            float[] cAn = {2f, 2f, 2f, 1f};
+            tabla.setWidths(cAn);
+
+
+            Font fontHeader = FontFactory.getFont("Russo One", 13, Font.BOLD, new BaseColor(139, 195, 74));
+
+            PdfPCell celdaNombreS = new PdfPCell(new Phrase("Nombre", fontHeader));
+            celdaNombreS.setBackgroundColor(new BaseColor(0, 156, 223));
+            tabla.addCell(celdaNombreS);
+
+            PdfPCell celdaDireccion = new PdfPCell(new Phrase("Descripcion", fontHeader));
+            celdaDireccion.setBackgroundColor(new BaseColor(0, 156, 223));
+            tabla.addCell(celdaDireccion);
+
+            PdfPCell celdaCorreo = new PdfPCell(new Phrase("Cantidad", fontHeader));
+            celdaCorreo.setBackgroundColor(new BaseColor(0, 156, 223));
+            tabla.addCell(celdaCorreo);
+
+            PdfPCell celdaTelefono = new PdfPCell(new Phrase("Precio", fontHeader));
+            celdaTelefono.setBackgroundColor(new BaseColor(0, 156, 223));
+            tabla.addCell(celdaTelefono);
+            
+            
+            
+            try {
+                String sql = "select * from productos";
+                con = acceso.Conectar();
+                ps = con.prepareStatement(sql);
+                rs = ps.executeQuery();
+                if (rs.next()) {
+                    do {
+                        tabla.addCell(rs.getString(2));
+                        tabla.addCell(rs.getString(3));
+                        tabla.addCell(rs.getString(4));
+                        tabla.addCell(rs.getString(5));
+                        
+                    } while (rs.next());
+                    doc.add(tabla);
+                }
+            } catch (DocumentException | SQLException e) {
+            }
+            doc.close();
+            JOptionPane.showMessageDialog(null, "PDF Creado");
+        } catch (DocumentException | HeadlessException | FileNotFoundException e) {
+        }
+    }
+    
+    
+    
+    
+    
+    private void pdf2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pdf2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pdf2MouseEntered
+
+    private void pdf2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pdf2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pdf2MouseExited
+
+    private void expo2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_expo2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_expo2MouseClicked
+
+    private void sesion2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sesion2MouseClicked
+        Login lo = new Login();
+        lo.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_sesion2MouseClicked
+
+    private void sesion2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sesion2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sesion2MouseEntered
+
+    private void sesion2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sesion2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sesion2MouseExited
+
     
     private void enviar_datos(){
     
@@ -1269,41 +1797,75 @@ SucursalesDAORelacional sd = new SucursalesDAORelacional();
          dispose();
        
     }
+   
+   
+   private void datosP(){
+    
+    String columnas []={"Codigo","Nombre","Descripcion","Cantidad","Precio"};
+    tablaP4 = new DefaultTableModel(null, columnas);
+    ProductosDAORelacional pd = new ProductosDAORelacional();
+        for (productosM dat : pd.ListarP()) {
+            Object ayuda [] = new Object[5];
+            ayuda[0] = dat.getCodigo();
+            ayuda[1] = dat.getNombre();
+            ayuda[2] = dat.getDescripcion();
+            ayuda[3] = dat.getCantidad();
+            ayuda[4] = dat.getPrecio();
+            tablaP4.addRow(ayuda);
+        }
+    tablaP.setModel(tablaP4);
+    }
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ELI;
     private javax.swing.JLabel ELI1;
+    private javax.swing.JLabel ELI2;
     private javax.swing.JLabel Modi;
     private javax.swing.JLabel Modi1;
+    private javax.swing.JLabel Modi2;
     private javax.swing.JPanel Update;
     private javax.swing.JPanel Update1;
+    private javax.swing.JPanel Update2;
     private javax.swing.JPanel carga;
     private javax.swing.JPanel carga1;
+    private javax.swing.JPanel carga2;
     private javax.swing.JPanel cerrar;
     private javax.swing.JPanel cerrar1;
+    private javax.swing.JPanel cerrar2;
     private javax.swing.JPanel crear;
     private javax.swing.JPanel crearS;
+    private javax.swing.JPanel crearS1;
     private javax.swing.JPanel elimi;
     private javax.swing.JPanel elimi1;
+    private javax.swing.JPanel elimi2;
     private javax.swing.JPanel exit;
     private javax.swing.JPanel expo;
     private javax.swing.JPanel expo1;
+    private javax.swing.JPanel expo2;
     private javax.swing.JPanel head;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel masi;
     private javax.swing.JLabel masi1;
+    private javax.swing.JLabel masi2;
+    private javax.swing.JPanel panelP;
     private javax.swing.JPanel panelS;
     private javax.swing.JPanel panelV;
     private javax.swing.JLabel pdf;
     private javax.swing.JLabel pdf1;
+    private javax.swing.JLabel pdf2;
     private javax.swing.JLabel sesion;
     private javax.swing.JLabel sesion1;
+    private javax.swing.JLabel sesion2;
+    private javax.swing.JTable tablaP;
     private javax.swing.JTable tablaS;
     private javax.swing.JTable tablaV;
     private javax.swing.JLabel textbutom;
     private javax.swing.JLabel textbutom1;
+    private javax.swing.JLabel textbutom2;
     private javax.swing.JLabel x;
     // End of variables declaration//GEN-END:variables
 }
