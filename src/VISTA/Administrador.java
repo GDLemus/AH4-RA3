@@ -1,12 +1,14 @@
 
 package VISTA;
 
+import MODEL.ClientesDAORelacional;
 import MODEL.Conexion;
 import MODEL.JsonCarga;
 import MODEL.ProductosDAORelacional;
 import MODEL.productosM;
 import MODEL.SucursalesDAORelacional;
 import MODEL.VendedoresDAORelacional;
+import MODEL.clientesM;
 import MODEL.sucursalesM;
 import MODEL.vendedoresM;
 import com.google.gson.JsonArray;
@@ -38,6 +40,7 @@ public class Administrador extends javax.swing.JFrame {
 DefaultTableModel tabla2;
 DefaultTableModel tablaS3;
 DefaultTableModel tablaP4;
+DefaultTableModel tablaC5;
      int xMouse, yMouse;
      
     public Administrador() {
@@ -45,6 +48,7 @@ DefaultTableModel tablaP4;
         datos();
         datosS();
         datosP();
+        datosC();
     }
 
     @SuppressWarnings("unchecked")
@@ -98,6 +102,21 @@ DefaultTableModel tablaP4;
         pdf2 = new javax.swing.JLabel();
         cerrar2 = new javax.swing.JPanel();
         sesion2 = new javax.swing.JLabel();
+        panelC = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tablaC = new javax.swing.JTable();
+        crearS2 = new javax.swing.JPanel();
+        textbutom3 = new javax.swing.JLabel();
+        Update3 = new javax.swing.JPanel();
+        Modi3 = new javax.swing.JLabel();
+        elimi3 = new javax.swing.JPanel();
+        ELI3 = new javax.swing.JLabel();
+        carga3 = new javax.swing.JPanel();
+        masi3 = new javax.swing.JLabel();
+        expo3 = new javax.swing.JPanel();
+        pdf3 = new javax.swing.JLabel();
+        cerrar3 = new javax.swing.JPanel();
+        sesion3 = new javax.swing.JLabel();
         head = new javax.swing.JPanel();
         exit = new javax.swing.JPanel();
         x = new javax.swing.JLabel();
@@ -941,6 +960,282 @@ DefaultTableModel tablaP4;
 
         jTabbedPane1.addTab("Productos", panelP);
 
+        panelC.setBackground(new java.awt.Color(139, 195, 74));
+
+        tablaC.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane4.setViewportView(tablaC);
+
+        crearS2.setBackground(new java.awt.Color(102, 102, 102));
+        crearS2.setPreferredSize(new java.awt.Dimension(150, 55));
+        crearS2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                crearS2MouseClicked(evt);
+            }
+        });
+
+        textbutom3.setFont(new java.awt.Font("Russo One", 0, 12)); // NOI18N
+        textbutom3.setForeground(new java.awt.Color(139, 195, 74));
+        textbutom3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        textbutom3.setText("CREAR CLIENTE");
+        textbutom3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        textbutom3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                textbutom3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                textbutom3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                textbutom3MouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout crearS2Layout = new javax.swing.GroupLayout(crearS2);
+        crearS2.setLayout(crearS2Layout);
+        crearS2Layout.setHorizontalGroup(
+            crearS2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(textbutom3, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+        );
+        crearS2Layout.setVerticalGroup(
+            crearS2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(textbutom3, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+        );
+
+        Update3.setBackground(new java.awt.Color(102, 102, 102));
+        Update3.setPreferredSize(new java.awt.Dimension(150, 55));
+        Update3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Update3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Update3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Update3MouseExited(evt);
+            }
+        });
+
+        Modi3.setFont(new java.awt.Font("Russo One", 0, 12)); // NOI18N
+        Modi3.setForeground(new java.awt.Color(139, 195, 74));
+        Modi3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Modi3.setText("MODIFICAR CLIENTE");
+        Modi3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Modi3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Modi3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Modi3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Modi3MouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Update3Layout = new javax.swing.GroupLayout(Update3);
+        Update3.setLayout(Update3Layout);
+        Update3Layout.setHorizontalGroup(
+            Update3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Modi3, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+        );
+        Update3Layout.setVerticalGroup(
+            Update3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Modi3, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+        );
+
+        elimi3.setBackground(new java.awt.Color(102, 102, 102));
+        elimi3.setPreferredSize(new java.awt.Dimension(150, 55));
+        elimi3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                elimi3MouseClicked(evt);
+            }
+        });
+
+        ELI3.setFont(new java.awt.Font("Russo One", 0, 12)); // NOI18N
+        ELI3.setForeground(new java.awt.Color(139, 195, 74));
+        ELI3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ELI3.setText("ELIMINAR CLIENTE");
+        ELI3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ELI3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ELI3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ELI3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ELI3MouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout elimi3Layout = new javax.swing.GroupLayout(elimi3);
+        elimi3.setLayout(elimi3Layout);
+        elimi3Layout.setHorizontalGroup(
+            elimi3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ELI3, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+        );
+        elimi3Layout.setVerticalGroup(
+            elimi3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ELI3, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+        );
+
+        carga3.setBackground(new java.awt.Color(102, 102, 102));
+        carga3.setPreferredSize(new java.awt.Dimension(150, 55));
+        carga3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carga3MouseClicked(evt);
+            }
+        });
+
+        masi3.setFont(new java.awt.Font("Russo One", 0, 12)); // NOI18N
+        masi3.setForeground(new java.awt.Color(139, 195, 74));
+        masi3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        masi3.setText("CARGA MASIVA");
+        masi3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        masi3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                masi3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                masi3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                masi3MouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout carga3Layout = new javax.swing.GroupLayout(carga3);
+        carga3.setLayout(carga3Layout);
+        carga3Layout.setHorizontalGroup(
+            carga3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(masi3, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+        );
+        carga3Layout.setVerticalGroup(
+            carga3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(masi3, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+        );
+
+        expo3.setBackground(new java.awt.Color(102, 102, 102));
+        expo3.setPreferredSize(new java.awt.Dimension(150, 55));
+        expo3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                expo3MouseClicked(evt);
+            }
+        });
+
+        pdf3.setFont(new java.awt.Font("Russo One", 0, 12)); // NOI18N
+        pdf3.setForeground(new java.awt.Color(139, 195, 74));
+        pdf3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pdf3.setText("EXPORTAR LISTADO A PDF");
+        pdf3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pdf3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pdf3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pdf3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pdf3MouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout expo3Layout = new javax.swing.GroupLayout(expo3);
+        expo3.setLayout(expo3Layout);
+        expo3Layout.setHorizontalGroup(
+            expo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pdf3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        expo3Layout.setVerticalGroup(
+            expo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pdf3, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+        );
+
+        cerrar3.setBackground(new java.awt.Color(102, 102, 102));
+
+        sesion3.setBackground(new java.awt.Color(255, 255, 255));
+        sesion3.setFont(new java.awt.Font("Russo One", 0, 14)); // NOI18N
+        sesion3.setForeground(new java.awt.Color(0, 0, 0));
+        sesion3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sesion3.setText("Cerrar Sesión");
+        sesion3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        sesion3.setPreferredSize(new java.awt.Dimension(70, 43));
+        sesion3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sesion3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                sesion3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                sesion3MouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout cerrar3Layout = new javax.swing.GroupLayout(cerrar3);
+        cerrar3.setLayout(cerrar3Layout);
+        cerrar3Layout.setHorizontalGroup(
+            cerrar3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(sesion3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+        );
+        cerrar3Layout.setVerticalGroup(
+            cerrar3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(sesion3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout panelCLayout = new javax.swing.GroupLayout(panelC);
+        panelC.setLayout(panelCLayout);
+        panelCLayout.setHorizontalGroup(
+            panelCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCLayout.createSequentialGroup()
+                        .addComponent(crearS2, 148, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                        .addComponent(Update3, 147, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelCLayout.createSequentialGroup()
+                        .addComponent(elimi3, 147, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(carga3, 147, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(expo3, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(cerrar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        panelCLayout.setVerticalGroup(
+            panelCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(panelCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
+                    .addGroup(panelCLayout.createSequentialGroup()
+                        .addGroup(panelCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(crearS2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Update3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(elimi3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(carga3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(expo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cerrar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Clientes", panelC);
+
         jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 650, 380));
 
         head.setBackground(new java.awt.Color(102, 102, 102));
@@ -1054,7 +1349,7 @@ DefaultTableModel tablaP4;
     }//GEN-LAST:event_xMouseEntered
 
     private void xMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseExited
-        exit.setBackground(Color.white);
+        exit.setBackground(new Color(102, 102, 102));
         exit.setForeground(Color.black);
     }//GEN-LAST:event_xMouseExited
 
@@ -1287,7 +1582,7 @@ DefaultTableModel tablaP4;
     }//GEN-LAST:event_sesionMouseEntered
 
     private void sesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sesionMouseExited
-        cerrar.setBackground(Color.white);
+        cerrar.setBackground(new Color(102, 102, 102));
         cerrar.setForeground(Color.black);
     }//GEN-LAST:event_sesionMouseExited
 
@@ -1501,7 +1796,7 @@ DefaultTableModel tablaP4;
     }//GEN-LAST:event_sesion1MouseEntered
 
     private void sesion1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sesion1MouseExited
-        cerrar1.setBackground(Color.white);
+        cerrar1.setBackground(new Color(102, 102, 102));
         cerrar1.setForeground(Color.black);
     }//GEN-LAST:event_sesion1MouseExited
 
@@ -1514,11 +1809,12 @@ DefaultTableModel tablaP4;
     }//GEN-LAST:event_textbutom2MouseClicked
 
     private void textbutom2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textbutom2MouseEntered
-        // TODO add your handling code here:
+      crearS1.setBackground(new Color(0, 156, 223));
     }//GEN-LAST:event_textbutom2MouseEntered
 
     private void textbutom2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textbutom2MouseExited
-        // TODO add your handling code here:
+       
+     crearS1.setBackground(new Color(102,102,102));
     }//GEN-LAST:event_textbutom2MouseExited
 
     private void crearS1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearS1MouseClicked
@@ -1543,11 +1839,14 @@ DefaultTableModel tablaP4;
     }
     
     private void Modi2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Modi2MouseEntered
-        // TODO add your handling code here:
+        
+        
+     Update2.setBackground(new Color(0, 156, 223));
+        
     }//GEN-LAST:event_Modi2MouseEntered
 
     private void Modi2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Modi2MouseExited
-        // TODO add your handling code here:
+       Update2.setBackground(new Color(102,102,102));
     }//GEN-LAST:event_Modi2MouseExited
 
     private void Update2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Update2MouseClicked
@@ -1584,11 +1883,11 @@ DefaultTableModel tablaP4;
     
     
     private void ELI2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ELI2MouseEntered
-        // TODO add your handling code here:
+        elimi2.setBackground(new Color(0, 156, 223));
     }//GEN-LAST:event_ELI2MouseEntered
 
     private void ELI2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ELI2MouseExited
-        // TODO add your handling code here:
+        elimi2.setBackground(new Color(102,102,102));
     }//GEN-LAST:event_ELI2MouseExited
 
     private void elimi2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_elimi2MouseClicked
@@ -1624,11 +1923,11 @@ DefaultTableModel tablaP4;
     
     
     private void masi2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_masi2MouseEntered
-        // TODO add your handling code here:
+       carga2.setBackground(new Color(0, 156, 223));
     }//GEN-LAST:event_masi2MouseEntered
 
     private void masi2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_masi2MouseExited
-        // TODO add your handling code here:
+      carga2.setBackground(new Color(102,102,102));
     }//GEN-LAST:event_masi2MouseExited
 
     private void carga2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carga2MouseClicked
@@ -1713,11 +2012,11 @@ DefaultTableModel tablaP4;
     
     
     private void pdf2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pdf2MouseEntered
-        // TODO add your handling code here:
+        expo2.setBackground(new Color(0, 156, 223));
     }//GEN-LAST:event_pdf2MouseEntered
 
     private void pdf2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pdf2MouseExited
-        // TODO add your handling code here:
+        expo2.setBackground(new Color(102,102,102));
     }//GEN-LAST:event_pdf2MouseExited
 
     private void expo2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_expo2MouseClicked
@@ -1731,12 +2030,242 @@ DefaultTableModel tablaP4;
     }//GEN-LAST:event_sesion2MouseClicked
 
     private void sesion2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sesion2MouseEntered
-        // TODO add your handling code here:
+         cerrar2.setBackground(Color.red);
+         cerrar2.setForeground(Color.white);
     }//GEN-LAST:event_sesion2MouseEntered
 
     private void sesion2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sesion2MouseExited
-        // TODO add your handling code here:
+        cerrar2.setBackground(new Color(102, 102, 102));
+        cerrar2.setForeground(Color.black);
     }//GEN-LAST:event_sesion2MouseExited
+
+    private void textbutom3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textbutom3MouseClicked
+     AddC ac = new AddC();
+     ac.setVisible(true);
+     dispose();
+    }//GEN-LAST:event_textbutom3MouseClicked
+
+    private void textbutom3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textbutom3MouseEntered
+        crearS2.setBackground(new Color(0, 156, 223));
+    }//GEN-LAST:event_textbutom3MouseEntered
+
+    private void textbutom3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textbutom3MouseExited
+       crearS2.setBackground(new Color(102,102,102));
+    }//GEN-LAST:event_textbutom3MouseExited
+
+    private void crearS2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearS2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_crearS2MouseClicked
+
+    private void Modi3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Modi3MouseClicked
+        
+        enviar_datosC();
+    }//GEN-LAST:event_Modi3MouseClicked
+ 
+    private void enviar_datosC(){
+    
+    int codigo = (int) tablaC.getValueAt(tablaC.getSelectedRow(), 0);
+        
+         UpC cu = new UpC();
+         cu.MostrarC(codigo);
+         cu.setVisible(true);
+         dispose();
+       
+    }
+    private void Modi3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Modi3MouseEntered
+       Update3.setBackground(new Color(0, 156, 223));
+    }//GEN-LAST:event_Modi3MouseEntered
+
+    private void Modi3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Modi3MouseExited
+       Update3.setBackground(new Color(102,102,102));
+    }//GEN-LAST:event_Modi3MouseExited
+
+    private void Update3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Update3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Update3MouseClicked
+
+    private void Update3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Update3MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Update3MouseEntered
+
+    private void Update3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Update3MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Update3MouseExited
+
+    private void ELI3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ELI3MouseClicked
+       
+        eliminar_datosC();
+    }//GEN-LAST:event_ELI3MouseClicked
+
+    private void eliminar_datosC(){
+    
+    int codigo = (int) tablaC.getValueAt(tablaC.getSelectedRow(), 0);
+
+         EliC ec = new EliC();
+         ec.EliMostrarC(codigo);
+         ec.setVisible(true);
+         dispose();
+         ClientesDAORelacional cd = new ClientesDAORelacional();
+         cd.eliminar_clientes(codigo);
+         
+  
+
+
+    }
+    
+    
+    private void ELI3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ELI3MouseEntered
+        
+        elimi3.setBackground(new Color(0, 156, 223));
+
+    }//GEN-LAST:event_ELI3MouseEntered
+
+    private void ELI3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ELI3MouseExited
+        elimi3.setBackground(new Color(102,102,102));
+    }//GEN-LAST:event_ELI3MouseExited
+
+    private void elimi3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_elimi3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_elimi3MouseClicked
+
+    private void masi3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_masi3MouseClicked
+     
+          JsonCarga archivo = new JsonCarga();
+          String leerarchivo = archivo.leerarchivo();
+          cargaMasivaC(leerarchivo);
+          datosC();
+        
+    }//GEN-LAST:event_masi3MouseClicked
+
+    
+    private void cargaMasivaC(String leerarchivo) {
+        String archivo_retorno = leerarchivo;
+        JsonParser parse = new JsonParser();
+        JsonArray matriz = parse.parse(archivo_retorno).getAsJsonArray();
+
+        for (int i = 0; i < matriz.size(); i++) {
+            JsonObject object = matriz.get(i).getAsJsonObject();
+            String nombre = object.get("nombre").getAsString();
+            int nit = object.get("nit").getAsInt();
+            String correo = object.get("correo").getAsString();
+            String genero = object.get("genero").getAsString();
+ 
+            clientesM in = new clientesM(nombre, nit, correo, genero);
+            ClientesDAORelacional insertC = new ClientesDAORelacional();
+            insertC.crear_clientes(in);
+
+        }
+    }
+    
+    private void masi3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_masi3MouseEntered
+        carga3.setBackground(new Color(0, 156, 223));
+    }//GEN-LAST:event_masi3MouseEntered
+
+    private void masi3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_masi3MouseExited
+       carga3.setBackground(new Color(102,102,102));
+    }//GEN-LAST:event_masi3MouseExited
+
+    private void carga3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carga3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carga3MouseClicked
+
+    private void pdf3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pdf3MouseClicked
+        
+        exportarPDFc();
+    }//GEN-LAST:event_pdf3MouseClicked
+
+    public void exportarPDFc() {
+        Document doc = new Document();
+        try {
+
+            FileOutputStream gen = new FileOutputStream("Listado Oficial Clientes.pdf");
+            
+
+            PdfWriter.getInstance(doc, gen);
+            doc.open();
+            
+            Paragraph titulo = new Paragraph("Listado Clientes");
+            titulo.setAlignment(Element.ALIGN_CENTER);
+            Font fontTitulo = FontFactory.getFont(FontFactory.COURIER, 24, Font.BOLD, new BaseColor(0, 102, 204));
+            titulo.setFont(fontTitulo);
+            doc.add(titulo);
+
+            doc.add(new Paragraph("\n"));
+            PdfPTable tabla = new PdfPTable(4);
+            tabla.setWidthPercentage(100);
+
+            float[] cAn = {2f, 2f, 2f, 1f};
+            tabla.setWidths(cAn);
+
+
+            Font fontHeader = FontFactory.getFont("Russo One", 13, Font.BOLD, new BaseColor(139, 195, 74));
+
+            PdfPCell celdaNombreS = new PdfPCell(new Phrase("Nombre", fontHeader));
+            celdaNombreS.setBackgroundColor(new BaseColor(0, 156, 223));
+            tabla.addCell(celdaNombreS);
+
+            PdfPCell celdaNIT = new PdfPCell(new Phrase("NIT", fontHeader));
+            celdaNIT.setBackgroundColor(new BaseColor(0, 156, 223));
+            tabla.addCell(celdaNIT);
+
+            PdfPCell celdaCorreo = new PdfPCell(new Phrase("Correo", fontHeader));
+            celdaCorreo.setBackgroundColor(new BaseColor(0, 156, 223));
+            tabla.addCell(celdaCorreo);
+
+            PdfPCell celdaGenero = new PdfPCell(new Phrase("Genero", fontHeader));
+            celdaGenero.setBackgroundColor(new BaseColor(0, 156, 223));
+            tabla.addCell(celdaGenero);
+            
+            
+            
+            try {
+                String sql = "select * from clientes";
+                con = acceso.Conectar();
+                ps = con.prepareStatement(sql);
+                rs = ps.executeQuery();
+                if (rs.next()) {
+                    do {
+                        tabla.addCell(rs.getString(2));
+                        tabla.addCell(rs.getString(3));
+                        tabla.addCell(rs.getString(4));
+                        tabla.addCell(rs.getString(5));
+                        
+                    } while (rs.next());
+                    doc.add(tabla);
+                }
+            } catch (DocumentException | SQLException e) {
+            }
+            doc.close();
+            JOptionPane.showMessageDialog(null, "PDF Creado");
+        } catch (DocumentException | HeadlessException | FileNotFoundException e) {
+        }
+    }
+    
+    private void pdf3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pdf3MouseEntered
+        expo3.setBackground(new Color(0, 156, 223));
+    }//GEN-LAST:event_pdf3MouseEntered
+
+    private void pdf3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pdf3MouseExited
+        expo3.setBackground(new Color(102,102,102));
+    }//GEN-LAST:event_pdf3MouseExited
+
+    private void expo3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_expo3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_expo3MouseClicked
+
+    private void sesion3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sesion3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sesion3MouseClicked
+
+    private void sesion3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sesion3MouseEntered
+       cerrar3.setBackground(Color.red);
+         cerrar3.setForeground(Color.white);
+    }//GEN-LAST:event_sesion3MouseEntered
+
+    private void sesion3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sesion3MouseExited
+        cerrar3.setBackground(new Color(102, 102, 102));
+        cerrar3.setForeground(Color.black);
+    }//GEN-LAST:event_sesion3MouseExited
 
     
     private void enviar_datos(){
@@ -1816,56 +2345,92 @@ SucursalesDAORelacional sd = new SucursalesDAORelacional();
     tablaP.setModel(tablaP4);
     }
    
+   
+   private void datosC(){
+    
+    String columnas []={"Codigo","Nombre","NIT","Correo","Genero"};
+    tablaC5 = new DefaultTableModel(null, columnas);
+    
+       ClientesDAORelacional cd =new ClientesDAORelacional();
+        for (clientesM dat : cd.ListarC()) {
+            Object ayuda [] = new Object[5];
+            ayuda[0] = dat.getCodigo();
+            ayuda[1] = dat.getNombre();
+            ayuda[2] = dat.getNit();
+            ayuda[3] = dat.getCorreo();
+            ayuda[4] = dat.getGenero();
+            tablaC5.addRow(ayuda);
+        }
+    tablaC.setModel(tablaC5);
+    }
+   
+   
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ELI;
     private javax.swing.JLabel ELI1;
     private javax.swing.JLabel ELI2;
+    private javax.swing.JLabel ELI3;
     private javax.swing.JLabel Modi;
     private javax.swing.JLabel Modi1;
     private javax.swing.JLabel Modi2;
+    private javax.swing.JLabel Modi3;
     private javax.swing.JPanel Update;
     private javax.swing.JPanel Update1;
     private javax.swing.JPanel Update2;
+    private javax.swing.JPanel Update3;
     private javax.swing.JPanel carga;
     private javax.swing.JPanel carga1;
     private javax.swing.JPanel carga2;
+    private javax.swing.JPanel carga3;
     private javax.swing.JPanel cerrar;
     private javax.swing.JPanel cerrar1;
     private javax.swing.JPanel cerrar2;
+    private javax.swing.JPanel cerrar3;
     private javax.swing.JPanel crear;
     private javax.swing.JPanel crearS;
     private javax.swing.JPanel crearS1;
+    private javax.swing.JPanel crearS2;
     private javax.swing.JPanel elimi;
     private javax.swing.JPanel elimi1;
     private javax.swing.JPanel elimi2;
+    private javax.swing.JPanel elimi3;
     private javax.swing.JPanel exit;
     private javax.swing.JPanel expo;
     private javax.swing.JPanel expo1;
     private javax.swing.JPanel expo2;
+    private javax.swing.JPanel expo3;
     private javax.swing.JPanel head;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel masi;
     private javax.swing.JLabel masi1;
     private javax.swing.JLabel masi2;
+    private javax.swing.JLabel masi3;
+    private javax.swing.JPanel panelC;
     private javax.swing.JPanel panelP;
     private javax.swing.JPanel panelS;
     private javax.swing.JPanel panelV;
     private javax.swing.JLabel pdf;
     private javax.swing.JLabel pdf1;
     private javax.swing.JLabel pdf2;
+    private javax.swing.JLabel pdf3;
     private javax.swing.JLabel sesion;
     private javax.swing.JLabel sesion1;
     private javax.swing.JLabel sesion2;
+    private javax.swing.JLabel sesion3;
+    private javax.swing.JTable tablaC;
     private javax.swing.JTable tablaP;
     private javax.swing.JTable tablaS;
     private javax.swing.JTable tablaV;
     private javax.swing.JLabel textbutom;
     private javax.swing.JLabel textbutom1;
     private javax.swing.JLabel textbutom2;
+    private javax.swing.JLabel textbutom3;
     private javax.swing.JLabel x;
     // End of variables declaration//GEN-END:variables
 }

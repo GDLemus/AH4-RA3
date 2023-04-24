@@ -363,7 +363,7 @@ public class UpP extends javax.swing.JFrame {
 //        sucursalesM sm = new sucursalesM(Integer.parseInt(j_codigoS.getText()), j_nameS.getText(), j_direccionS.getText(), j_correoS.getText(), Integer.parseInt(j_telefonoS.getText()));
         productosM pm = new productosM(Integer.parseInt(j_codigoP.getText()), j_nameP.getText(), j_descripcionP.getText(), Integer.parseInt(j_cantidadP.getText()), Float.parseFloat(j_precioP.getText()));
         ProductosDAORelacional pd = new ProductosDAORelacional();
-        pd.crear_productos(pm);
+        pd.modificar_productos(pm);
         Administrador ad = new Administrador();
         ad.setVisible(true);
         dispose();

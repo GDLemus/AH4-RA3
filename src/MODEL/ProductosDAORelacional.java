@@ -83,7 +83,8 @@ public class ProductosDAORelacional implements ProductosDAO{
         } catch (SQLException e) {
             System.out.println(e);
         
-        }}
+        }
+    }
 
     @Override
     public void modificar_productos(productosM producto) {
